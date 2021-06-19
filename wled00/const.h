@@ -291,7 +291,7 @@
 #endif
 
 #ifndef DEFAULT_LED_COUNT
-  #define DEFAULT_LED_COUNT 30
+  #define DEFAULT_LED_COUNT 256
 #endif
 
 #endif

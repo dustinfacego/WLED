@@ -11,7 +11,7 @@
 #define VERSION 2106180
 
 //uncomment this if you have a "my_config.h" file you'd like to use
-//#define WLED_USE_MY_CONFIG
+#define WLED_USE_MY_CONFIG
 
 // ESP8266-01 (blue) got too little storage space to work with WLED. 0.10.2 is the last release supporting this unit.
 
@@ -23,11 +23,11 @@
 //#define WLED_DISABLE_OTA         // saves 14kb
 
 // You can choose some of these features to disable:
-//#define WLED_DISABLE_ALEXA       // saves 11kb
-//#define WLED_DISABLE_BLYNK       // saves 6kb
-//#define WLED_DISABLE_CRONIXIE    // saves 3kb
+#define WLED_DISABLE_ALEXA       // saves 11kb
+#define WLED_DISABLE_BLYNK       // saves 6kb
+#define WLED_DISABLE_CRONIXIE    // saves 3kb
 //#define WLED_DISABLE_HUESYNC     // saves 4kb
-//#define WLED_DISABLE_INFRARED    // there is no pin left for this on ESP8266-01, saves 12kb
+#define WLED_DISABLE_INFRARED    // there is no pin left for this on ESP8266-01, saves 12kb
 #ifndef WLED_DISABLE_MQTT
   #define WLED_ENABLE_MQTT         // saves 12kb
 #endif
@@ -200,7 +200,7 @@ using PSRAMDynamicJsonDocument = BasicJsonDocument<PSRAM_Allocator>;
 
 // Global Variable definitions
 WLED_GLOBAL char versionString[] _INIT(TOSTRING(WLED_VERSION));
-#define WLED_CODENAME "Hikari"
+#define WLED_CODENAME "HiddenTiddy"
 
 // AP and OTA default passwords (for maximum security change them!)
 WLED_GLOBAL char apPass[65]  _INIT(DEFAULT_AP_PASS);
@@ -236,7 +236,7 @@ WLED_GLOBAL int8_t irPin _INIT(IRPIN);
 
 //WLED_GLOBAL byte presetToApply _INIT(0);
 
-WLED_GLOBAL char ntpServerName[33] _INIT("0.wled.pool.ntp.org");   // NTP server to use
+WLED_GLOBAL char ntpServerName[33] _INIT("10.0.10.1");   // NTP server to use
 
 // WiFi CONFIG (all these can be changed via web UI, no need to set them here)
 WLED_GLOBAL char clientSSID[33] _INIT(CLIENT_SSID);
@@ -270,7 +270,7 @@ WLED_GLOBAL byte bootPreset   _INIT(0);                   // save preset to load
 
 WLED_GLOBAL byte col[]    _INIT_N(({ 255, 160, 0, 0 }));  // current RGB(W) primary color. col[] should be updated if you want to change the color.
 WLED_GLOBAL byte colSec[] _INIT_N(({ 0, 0, 0, 0 }));      // current RGB(W) secondary color
-WLED_GLOBAL byte briS     _INIT(128);                     // default brightness
+WLED_GLOBAL byte briS     _INIT(64);                     // default brightness
 
 WLED_GLOBAL byte nightlightTargetBri _INIT(0);      // brightness after nightlight is over
 WLED_GLOBAL byte nightlightDelayMins _INIT(60);
@@ -355,7 +355,7 @@ WLED_GLOBAL bool hueApplyColor _INIT(true);
 #endif
 
 // Time CONFIG
-WLED_GLOBAL bool ntpEnabled _INIT(false);         // get internet time. Only required if you use clock overlays or time-activated macros
+WLED_GLOBAL bool ntpEnabled _INIT(true);         // get internet time. Only required if you use clock overlays or time-activated macros
 WLED_GLOBAL bool useAMPM _INIT(false);            // 12h/24h clock format
 WLED_GLOBAL byte currentTimezone _INIT(0);        // Timezone ID. Refer to timezones array in wled10_ntp.ino
 WLED_GLOBAL int utcOffsetSecs _INIT(0);           // Seconds to offset from UTC before timzone calculation
